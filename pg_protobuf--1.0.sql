@@ -37,6 +37,36 @@ CREATE FUNCTION protobuf_get_bytes_multi(bytea, int)
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
+CREATE FUNCTION protobuf_set_int_multi(bytea, int, bigint[])
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRICT IMMUTABLE;
+
+CREATE FUNCTION protobuf_set_sfixed32_multi(bytea, int, int[])
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRICT IMMUTABLE;
+
+CREATE FUNCTION protobuf_set_float_multi(bytea, int, real[])
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRICT IMMUTABLE;
+
+CREATE FUNCTION protobuf_set_sfixed64_multi(bytea, int, bigint[])
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRICT IMMUTABLE;
+
+CREATE FUNCTION protobuf_set_double_multi(bytea, int, double precision[])
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRICT IMMUTABLE;
+
+CREATE FUNCTION protobuf_set_bytes_multi(bytea, int, bytea[])
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRICT IMMUTABLE;
+
 CREATE FUNCTION protobuf_get_int(data bytea, tag int) RETURNS bigint AS $$
 BEGIN
     RETURN (protobuf_get_int_multi(data, tag))[1];
