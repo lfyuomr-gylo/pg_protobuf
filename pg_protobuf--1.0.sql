@@ -37,32 +37,37 @@ CREATE FUNCTION protobuf_get_bytes_multi(bytea, int)
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
-CREATE FUNCTION protobuf_set_int_multi(bytea, int, bigint[])
+CREATE FUNCTION protobuf_remove(bytea, int)
+    RETURNS bytea
+    AS 'MODULE_PATHNAME'
+    LANGUAGE C STRING IMMUTABLE;
+
+CREATE FUNCTION protobuf_append_int(bytea, int, bigint)
     RETURNS bytea
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
-CREATE FUNCTION protobuf_set_sfixed32_multi(bytea, int, int[])
+CREATE FUNCTION protobuf_append_sfixed32(bytea, int, int)
     RETURNS bytea
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
-CREATE FUNCTION protobuf_set_float_multi(bytea, int, real[])
+CREATE FUNCTION protobuf_append_float(bytea, int, real)
     RETURNS bytea
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
-CREATE FUNCTION protobuf_set_sfixed64_multi(bytea, int, bigint[])
+CREATE FUNCTION protobuf_append_sfixed64(bytea, int, bigint)
     RETURNS bytea
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
-CREATE FUNCTION protobuf_set_double_multi(bytea, int, double precision[])
+CREATE FUNCTION protobuf_append_double(bytea, int, double precision)
     RETURNS bytea
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
 
-CREATE FUNCTION protobuf_set_bytes_multi(bytea, int, bytea[])
+CREATE FUNCTION protobuf_append_bytes(bytea, int, bytea)
     RETURNS bytea
     AS 'MODULE_PATHNAME'
     LANGUAGE C STRICT IMMUTABLE;
